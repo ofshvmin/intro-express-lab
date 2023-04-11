@@ -2,6 +2,7 @@
 
 import express from 'express'
 import { students } from './data/student-data.js'
+import * as studentData from './data/student-data.js'
 
 // create Express app
 
@@ -29,8 +30,10 @@ app.get('/home', function(req, res) {
 })
 
 app.get('/students', function(req, res) {
-  res.render('students/index')
-})
+  res.render('students/index', {
+    students: students
+    })
+  })
 
 // app.get('/dgm', function(req, res) {
 //   res.redirect(/daniel/gene/mathews/jr)
